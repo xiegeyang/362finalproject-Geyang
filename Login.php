@@ -70,13 +70,13 @@ if (isset($_POST["guestManager"]) && isset($_POST["guestPassword"])) {
 		<a href="registration.php">new customer? register here!</a>    
     </div>
     <div align="left" style="padding-left:20px">
-		<p> OR </p>
+<!--		<p> OR </p>-->
     </div>
     <div align="left" style="padding-left:20px">
 <form id="guest_form" name="guest" action="Login.php" method="post">
 <input name="guestManager" type="hidden" value="guest" />
 <input name="guestPassword" type="hidden" value="guest" />
-    <button style="margin-top:5px;" type="submit" value="submit">Login as guest</button>
+<!--    <button style="margin-top:5px;" type="submit" value="submit">Login as guest</button>-->
     </form>	  
     </div>
  	

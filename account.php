@@ -107,7 +107,7 @@ $existCount2 = mysql_num_rows($sql2); // count the row nums
 <div align="center" id="mainWrapper">
   <?php include_once("template_header.php");?>
   <div id="pageContent">
-   <div id="pageContent" style="height:510px;">
+   <!--<div id="pageContent" style="height:510px;">-->
     <div align="left" style="padding-left:20px">
     <h2>Account Information</h2>
     <form id="account_form" name="account" action="account.php" method="post">
@@ -125,6 +125,10 @@ $existCount2 = mysql_num_rows($sql2); // count the row nums
     </form>  </div>
     <br> 	
 </div>
+
+
 </body>
+
  <?php include_once("template_footer.php");?>
+</div>
 </html>

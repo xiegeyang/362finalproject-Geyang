@@ -41,7 +41,7 @@ if ($existCount == 0) { // evaluate the count
 Your Order history is
  <p><?php 
 /* show tables */
-	$result2 = mysql_query("SELECT book_ID, quantity, date, genre FROM order_history where user_id='$manager'") or die('You have not purchased any books yet');
+	$result2 = mysql_query("SELECT book_ID, quantity, date, genre FROM Order_History where User_id='$manager'") or die('You have not purchased any books yet');
 	if(mysql_num_rows($result2)) {
 		echo '<table cellpadding="0" cellspacing="0" class="db-table">';
 		echo '<tr>
@@ -70,6 +70,7 @@ Your Order history is
 <br /><br/>
 </center>
 </body>
+
 </div>
 <?php include_once("template_footer.php"); ?>
 </div>
