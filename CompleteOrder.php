@@ -1,29 +1,30 @@
 <?php 
-/*
-@author: Divya Jeyachandran
-*/ 
+ 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
+
 ?>
+
 <?php
 // This block to to check the session. If previous session is still valid, redirects to index page else to the admin_login page
 session_start();
-if(!isset($_SESSION["manager"])){
-	header("location: Login.php");
-	exit();
-}
+//if(!isset($_SESSION["manager"])){
+	//header("location: Login.php");
+//	exit();
+	
+//}
 
-$manager = preg_replace('#[^A-Za-z0-9]#i', '', $_SESSION["manager"]);
-$password = preg_replace('#[^A-Za-z0-9]#i', '', $_SESSION["password"]);
+$manager = preg_replace('#[^A-Za-z0-9]#i', '',  $_SESSION["manager"]);
+$password = preg_replace('#[^A-Za-z0-9]#i', '',  $_SESSION["password"]);
 include "storescripts/connect_to_mysql.php"; 
-$sql = mysql_query("SELECT * FROM customer_info WHERE user_ID='$manager' AND password='$password' LIMIT 1");
+$sql = mysql_query("SELECT * FROM customer_info WHERE User_ID='$manager' AND password='$password' LIMIT 1");
 $existCount = mysql_num_rows($sql); // count the row nums
 if ($existCount == 0) { // evaluate the count
 	 echo "Your login session data is not on record in the database.";
      exit();
 }
-
 	$user_id =$_SESSION["manager"];
+
 ?>
 <?php 
 $type=$_POST['S_TYPE'];
@@ -37,7 +38,6 @@ else if ($type=='EXPRESS'){
 else if ($type=='OVERNIGHT'){
 	$day =2;
 }
-
 ?>
  <?php
 if (isset($_POST['c_Number'])) {
@@ -48,8 +48,7 @@ if (isset($_POST['c_Number'])) {
 		$price = $_POST["amount_$x"];	
 		$category = $_POST["category_$x"];
 $total_price =$quantity*$price ;				
-		$sql = mysql_query("INSERT INTO Order_History (book_ID, user_ID, date, quantity, total_price,genre) values ( '$book_name', '$user_id',now(),'$quantity', '$total_price','$category')  ")or die (mysql_error());	}
-
+		$sql = mysql_query("INSERT INTO Order_History (book_ID, User_ID, date, quantity, total_price,genre) values ( '$book_name', '$user_id',now(),'$quantity', '$total_price','$category')  ")or die (mysql_error());	}
 $Card_type=$_POST['card_type'];
 $Card_Name =$_POST['c_holderN'];
 $Card_Num=$_POST['c_Number'];
@@ -61,22 +60,21 @@ $street_address = $_POST["street_address"];
 $city = $_POST["city"];
 $state = $_POST["state"];
 $zipcode = $_POST["zipcode"];
-
 		$sql1 = mysql_query("INSERT INTO order_address( address, city, state, zip) VALUES ('$street_address','$city','$state','$zipcode') ")or die (mysql_error());	
 		
-		$checkCard = mysql_query("SELECT * FROM credit_card WHERE card_number=$Card_Num AND CVV=$CVV LIMIT 1");
-		$cardCount = mysql_num_rows($checkCard);
-		if(!$cardCount) {
-		$sql2 = mysql_query("INSERT INTO credit_card(card_number, card_username, card_type, CVV, expiry_date, user_ID) VALUES ('$Card_Num','$Card_Name','$Card_type','$CVV','$ExpiryDate','$user_id') ")or die (mysql_error());	
-		}
+		//$checkCard = mysql_query("SELECT * FROM credit_card WHERE card_number=$Card_Num AND CVV=$CVV LIMIT 1");
+		//$cardCount = mysql_num_rows($checkCard);
+		//if(!$cardCount) {
+		//$sql2 = mysql_query("INSERT INTO credit_card(card_number, card_username, card_type, CVV, expiry_date, user_ID) VALUES ('$Card_Num','$Card_Name','$Card_type','$CVV','$ExpiryDate','$user_id') ")or die (mysql_error());	
+		//}
 		$sql3 = mysql_query("INSERT INTO order_info( user_ID, receiver_name, shipping_type, date, total_price, card_number) VALUES ('$user_id','$R_Name','$type',now(),'890','$Card_Num') ")or die (mysql_error());
 	
 $dynamicList = "";
 $sql = mysql_query("SELECT DISTINCT b.book_ID, b.book_name, b.price  FROM 
-book_inventory as b WHERE genre IN  
-(SELECT genre FROM order_history WHERE user_ID='$manager') 
+Book_Inventory as b WHERE genre IN  
+(SELECT genre FROM Order_History WHERE User_ID='$manager') 
 AND book_name NOT IN
-(SELECT book_id FROM order_history WHERE user_ID='$manager')");
+(SELECT book_id FROM Order_History WHERE User_ID='$manager')");
 $productCount = mysql_num_rows($sql); // count the output amount
 if ($productCount > 0) {
 	while($row = mysql_fetch_array($sql)){ 
@@ -101,7 +99,7 @@ mysql_close();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>DJ BookStore</title>
+<title>PNW BookStore</title>
 <link rel="stylesheet" href="style/style.css" type="text/css"/>
 
 </head>
@@ -121,4 +119,5 @@ Thank you for placing your order. Your order has been processed and will be deli
 </div>
 <?php include_once("template_footer.php"); ?>
 </div>
+
 </html>

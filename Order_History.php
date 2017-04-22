@@ -1,7 +1,4 @@
-<?php 
-/*
-@author: Gayathri Seshadri
-*/ 
+<?php  
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ?>
@@ -32,7 +29,7 @@ if ($existCount == 0) { // evaluate the count
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>DJ BookStore</title>
+<title>PNW BookStore</title>
 <link rel="stylesheet" href="style/style.css" type="text/css"/>
 
 </head>

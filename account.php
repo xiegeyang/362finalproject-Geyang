@@ -1,7 +1,5 @@
 <?php 
-/*
-@author: Gayathri
-*/ 
+ 
 // Script Error Reporting
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
@@ -66,7 +64,7 @@ if ($existCount == 0) { // evaluate the count
  //   $productCount = mysql_num_rows($sql); // count the output amount
     if ($existCount > 0) {
 	    while($row = mysql_fetch_array($sql)){ 
-           $userID = $row["user_ID"];  
+           $userID = $row["User_ID"];  
 			 $password = $row["password"];
 			 $first_name = $row["first_name"];
 			 $last_name = $row["last_name"];
@@ -77,7 +75,7 @@ if ($existCount == 0) { // evaluate the count
 	    echo "Sorry that doesn't exist.";
 		exit();
     }
-$sql2 = mysql_query("SELECT * FROM Customer_address WHERE user_ID='$manager'");
+$sql2 = mysql_query("SELECT * FROM Customer_address WHERE User_ID='$manager'");
 $existCount2 = mysql_num_rows($sql2); // count the row nums
 
 //$targetID = $_GET['pid'];

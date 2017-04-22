@@ -1,7 +1,5 @@
 <?php 
-/*
-@author: Gayathri Sriranagam Seshadri
-*/ 
+ 
 // Script Error Reporting
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
@@ -105,7 +103,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 	$i = 0; 
     foreach ($_SESSION["cart_array"] as $each_item) { 
 		$item_id = $each_item['item_id'];
-		$sql = mysql_query("SELECT * FROM book_inventory WHERE book_ID='$item_id' LIMIT 1");
+		$sql = mysql_query("SELECT * FROM Book_Inventory WHERE book_ID='$item_id' LIMIT 1");
 		while ($row = mysql_fetch_array($sql)) {
 			$product_name = $row["book_name"];
 			$price = $row["price"];

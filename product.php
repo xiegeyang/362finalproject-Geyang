@@ -1,7 +1,5 @@
 <?php 
-/*
-@author: Divya Jeyachandran
-*/ 
+ 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ?>
@@ -32,7 +30,7 @@ if (isset($_GET['id'])) {
 	$id = preg_replace('#[^0-9]#i', '', $_GET['id']); 
 	// Use this var to check to see if this ID exists, if yes then get the product 
 	// details, if no then exit this script and give message why
-	$sql = mysql_query("SELECT * FROM book_inventory WHERE book_ID='$id' LIMIT 1");
+	$sql = mysql_query("SELECT * FROM Book_Inventory WHERE book_ID='$id' LIMIT 1");
 	$sql1 = mysql_query("SELECT * FROM review WHERE book_ID='$id' LIMIT 10");
 	$productCount = mysql_num_rows($sql); // count the output amount
 	 $productCount1 = mysql_num_rows($sql1); // count the output amount

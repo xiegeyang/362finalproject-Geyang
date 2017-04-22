@@ -1,7 +1,5 @@
 <?php 
-/*
-@author: Gayathri Seshadri
-*/ 
+ 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ?>
@@ -31,7 +29,7 @@ $dynamicList = "";
 $id = htmlspecialchars($_POST["ID"]);
 $product_name = htmlspecialchars($_POST["product_name"]);
 $product_desc = htmlspecialchars($_POST["product_desc"]);
-$sql = mysql_query("SELECT * FROM book_inventory where book_id='$id' or book_name='$product_name' or author='$product_desc'");
+$sql = mysql_query("SELECT * FROM Book_Inventory where book_id='$id' or book_name='$product_name' or author='$product_desc'");
 $productCount = mysql_num_rows($sql); // count the output amount
 if ($productCount > 0) {
 	while($row = mysql_fetch_array($sql)){ 

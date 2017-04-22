@@ -1,7 +1,5 @@
 <?php 
-/*
-@author: Gayathri Seshadri
-*/ 
+ 
 session_start(); // Start session first thing in script
 // Script Error Reporting
 error_reporting(E_ALL);
@@ -38,7 +36,7 @@ if (isset($_POST['cmd'])) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>DJ BookStore</title>
+<title>PNW BookStore</title>
 <link rel="stylesheet" href="style/style.css" type="text/css"/>
 
 </head>

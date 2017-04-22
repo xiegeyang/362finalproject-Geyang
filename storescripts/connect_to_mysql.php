@@ -1,8 +1,6 @@
 <?php
 error_reporting(E_ALL ^ E_DEPRECATED);
-/*
-@author: Gayathri
-*/ 
+ 
 /*  
 1: "die()" will exit the script and show an error statement if something goes wrong with the "connect" or "select" functions. 
 2: A "mysql_connect()" error usually means your username/password are wrong  

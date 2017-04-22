@@ -1,7 +1,5 @@
 <?php 
-/*
-@author: Divya Jeyachandran
-*/ 
+ 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ?>
@@ -65,7 +63,7 @@ mysql_close();
   <div id="pageContent">
   <table width="100%" border="0" cellspacing="0" cellpadding="10">
   <tr>
-    <td width="32%" valign="top"><h3>Welcome to DJ BOOKSTORE</h3>
+    <td width="32%" valign="top"><h3>Welcome to PNW BOOKSTORE</h3>
       <p> Shop your favorite book from our wide range of book collection</p></td>
     <td width="35%" valign="top"><h3>Latest Books</h3>
       <p><?php echo $dynamicList; ?><br />
