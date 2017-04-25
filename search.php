@@ -26,10 +26,10 @@ if ($existCount == 0) { // evaluate the count
 // Connect to the MySQL database  
 include "storescripts/connect_to_mysql.php"; 
 $dynamicList = "";
-$id = htmlspecialchars($_POST["ID"]);
+//$id = htmlspecialchars($_POST["ID"]);
 $product_name = htmlspecialchars($_POST["product_name"]);
 $product_desc = htmlspecialchars($_POST["product_desc"]);
-$sql = mysql_query("SELECT * FROM Book_Inventory where book_id='$id' or book_name='$product_name' or author='$product_desc'");
+$sql = mysql_query("SELECT * FROM Book_Inventory where book_name='$product_name' or author='$product_desc'");
 $productCount = mysql_num_rows($sql); // count the output amount
 if ($productCount > 0) {
 	while($row = mysql_fetch_array($sql)){ 
@@ -68,8 +68,7 @@ mysql_close();
   <tr>
     <td valign="top"><form id="form1" name="form1" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>">
       <p>
-        <label for="ID"> ISBN                    </label>
-        <input type="text" name="ID" id="ID" /> 
+        
         <label for="product_name">BOOK NAME</label>
         <input type="text" name="product_name" id="product_name" />
         <label for="product_desc">AUTHOR</label>
@@ -83,8 +82,7 @@ mysql_close();
   <tr>
     <td valign="top"><form id="form1" name="form1" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>">
       <p>
-        <label for="ID"> ISBN                    </label>
-        <input type="text" name="ID" id="ID" /> 
+         
         <label for="product_name">BOOK NAME</label>
         <input type="text" name="product_name" id="product_name" />
         <label for="product_desc">AUTHOR</label>
